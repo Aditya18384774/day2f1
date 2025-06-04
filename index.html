@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register | Colorful App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md py-4 animate-fade-in-down">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center text-white">
+      <h1 class="text-2xl font-bold">ColorfulApp</h1>
+      <nav>
+        <ul class="flex gap-6 text-sm font-semibold">
+          <li><a href="#" class="hover:text-yellow-300">Home</a></li>
+          <li><a href="#" class="hover:text-yellow-300">About</a></li>
+          <li><a href="#" class="hover:text-yellow-300">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 relative overflow-hidden">
+    <!-- Floating shapes -->
+    <div class="absolute top-10 left-10 w-20 h-20 bg-pink-300 rounded-full opacity-30 animate-[float_6s_infinite]"></div>
+    <div class="absolute bottom-10 right-10 w-32 h-32 bg-yellow-200 rounded-full opacity-40 animate-[float_8s_infinite]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 items-center gap-10 relative z-10">
+      <!-- Left content -->
+      <div class="space-y-6">
+        <h2 class="text-4xl md:text-5xl font-bold text-purple-700 animate-fade-in">🚀 Join the Colorful Experience</h2>
+        <p class="text-lg text-gray-700">Sign up today and unlock all the features designed to enhance your journey with us.</p>
+      </div>
+
+      <!-- Right: Registration Form -->
+      <div class="bg-white rounded-xl shadow-2xl p-8 animate-fade-in-up">
+        <h3 class="text-2xl font-semibold mb-6 text-indigo-700">Create Your Account</h3>
+        <form id="registerForm" class="space-y-5">
+          <!-- Full Name -->
+          <div>
+            <label for="name" class="block text-sm font-medium">Full Name</label>
+            <input type="text" id="name" name="name" required
+              class="mt-1 block w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-purple-500 focus:border-purple-500"/>
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium">Email Address</label>
+            <input type="email" id="email" name="email" required
+              class="mt-1 block w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-purple-500 focus:border-purple-500"/>
+          </div>
+
+          <!-- Phone Number -->
+          <div>
+            <label for="phone" class="block text-sm font-medium">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required
+              class="mt-1 block w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-purple-500 focus:border-purple-500"/>
+          </div>
+
+          <!-- Role -->
+          <div>
+            <label for="role" class="block text-sm font-medium">Select Role</label>
+            <select id="role" name="role" required
+              class="mt-1 block w-full border border-gray-300 rounded-md px-4 py-2 bg-white focus:ring-purple-500 focus:border-purple-500">
+              <option value="">Choose...</option>
+              <option value="student">Student</option>
+              <option value="developer">Developer</option>
+              <option value="designer">Designer</option>
+              <option value="manager">Manager</option>
+            </select>
+          </div>
+
+          <!-- Terms -->
+          <div class="flex items-center space-x-3">
+            <input type="checkbox" id="terms" required class="rounded text-purple-600"/>
+            <label for="terms" class="text-sm">I agree to the <a href="#" class="text-purple-600 underline">terms and conditions</a></label>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit"
+            class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-2 rounded-md shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200">
+            Register Now
+          </button>
+
+          <p id="successMessage" class="text-green-600 text-sm mt-3 hidden">🎉 Registration successful! Welcome aboard.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-indigo-700 text-white py-6 mt-10">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm">
+      <p>&copy; 2025 ColorfulApp. All rights reserved.</p>
+      <div class="flex gap-4 mt-4 md:mt-0">
+        <a href="#" class="hover:underline">Privacy</a>
+        <a href="#" class="hover:underline">Terms</a>
+        <a href="#" class="hover:underline">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const form = document.getElementById('registerForm');
+    const message = document.getElementById('successMessage');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      message.classList.remove('hidden');
+      form.reset();
+      setTimeout(() => message.classList.add('hidden'), 5000);
+    });
+  </script>
+
+</body>
+</html>
+
